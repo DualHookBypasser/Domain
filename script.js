@@ -179,6 +179,30 @@ function addGlitchEffect() {
     }
 }
 
+// Premium toggle functionality
+function initPremiumToggle() {
+    const toggleBtn = document.getElementById('premiumToggle');
+    const premiumSection = document.getElementById('premiumSection');
+    
+    if (toggleBtn && premiumSection) {
+        toggleBtn.addEventListener('click', () => {
+            toggleBtn.classList.toggle('active');
+            premiumSection.classList.toggle('active');
+            
+            const toggleText = toggleBtn.querySelector('.toggle-text');
+            const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+            
+            if (premiumSection.classList.contains('active')) {
+                toggleText.textContent = 'HIDE PREMIUM TOOLS';
+                toggleIcon.textContent = '🌟';
+            } else {
+                toggleText.textContent = 'UNLOCK PREMIUM TOOLS';
+                toggleIcon.textContent = '🔮';
+            }
+        });
+    }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Use Intersection Observer for performance
@@ -209,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new MouseTrail();
     addButtonEffects();
     addGlitchEffect();
+    initPremiumToggle();
     
     // Faster loading animation
     document.body.style.opacity = '0';
