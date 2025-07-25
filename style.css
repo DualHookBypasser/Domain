@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -162,9 +161,78 @@ body {
 
 .button-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    justify-items: center;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 0 20px;
+}
+
+.premium-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.premium-title {
+    font-size: 2rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e, #ffcc02);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+    animation: premiumGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes premiumGlow {
+    0% {
+        filter: brightness(1);
+        text-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+    }
+    100% {
+        filter: brightness(1.3);
+        text-shadow: 0 0 40px rgba(255, 107, 53, 0.8);
+    }
+}
+
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.neon-btn.premium {
+    background: linear-gradient(45deg, #ff6b35, #f7931e, #ffcc02, #ff6b35);
+    background-size: 300% 300%;
+    animation: premiumShine 3s ease infinite;
+    border: 2px solid rgba(255, 107, 53, 0.5);
+    box-shadow: 
+        0 0 30px rgba(255, 107, 53, 0.6),
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.neon-btn.premium:hover {
+    box-shadow: 
+        0 0 40px rgba(255, 107, 53, 0.8),
+        0 8px 25px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 107, 53, 0.8);
+}
+
+@keyframes premiumShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .neon-btn {
@@ -312,12 +380,12 @@ body::before {
     .neon-title {
         font-size: 2.5rem;
     }
-    
+
     .button-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .neon-btn {
         width: 100%;
         max-width: 300px;
